@@ -1,11 +1,1 @@
-****This SDK is running on the exploit of Roblox. It is not for the normal ServerScript!!!****
-
-****This SDK is running on the exploit of Roblox. It is not for the normal ServerScript!!!****
-
-****This SDK is running on the exploit of Roblox. It is not for the normal ServerScript!!!****
-
-****This SDK is running on the exploit of Roblox. It is not for the normal ServerScript!!!****
-
-****This SDK is running on the exploit of Roblox. It is not for the normal ServerScript!!!****
-
-****This SDK is running on the exploit of Roblox. It is not for the normal ServerScript!!!****
+**Never hard-code your key directly—protect it with at least a macro or runtime decryption!!!!!!!**
