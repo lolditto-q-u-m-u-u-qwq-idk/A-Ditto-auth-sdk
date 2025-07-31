@@ -990,7 +990,7 @@ Learn more at https://a-ditto.xyz/]==]
         local responsePayload, responseSignature = initResponse:match("^(.-)%.([^%.]+)$")
         if responsePayload and responseSignature then--Validate the token's format
         else
-            return kickPlayer("An unexpected operation(Error Code: A-Ditto-C 3)" .. initResponse, true)
+            return kickPlayer("An unexpected operation(Error Code: A-Ditto-C 3)", true)
         end
         if secure_compare(hmac(mainKey, responsePayload, false), base64UrlDecode(responseSignature)) then--Verify the JWT signature
             return kickPlayer("An unexpected operation(Error Code: A-Ditto-C 4)", true)
