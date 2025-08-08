@@ -1701,7 +1701,7 @@ Learn more at https://a-ditto.xyz/
                     end
                 ),
                 "{{luraph_site_key}}",
-                aaaaaakey .. LPH_ENCSTR("{{luraph_sitekey}}")
+                aaaaaakey .. LPH_ENCSTR("{{luraph_dittokey}}")
             )
         else
             return eR4r("Encountered an unknown error(Error Code: A-Ditto-C Earthquake)", true)
