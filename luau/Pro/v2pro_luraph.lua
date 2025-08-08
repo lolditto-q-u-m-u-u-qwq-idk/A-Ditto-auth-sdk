@@ -1340,11 +1340,7 @@ Learn more at https://a-ditto.xyz/
         local rG3 = hex_to_binary(LPH_ENCSTR("{{main_key}}"))
         local cK7 =
             kdf_blake2s_keyed(
-            hex_to_binary(
-                LPH_ENCSTR(
-                    "{{secret_key_1}}"
-                )
-            ),
+            hex_to_binary(LPH_ENCSTR("{{secret_key_1}}")),
             blake2s(
                 rSfiV ..
                     hex_to_binary(b6r) ..
@@ -1692,16 +1688,22 @@ Learn more at https://a-ditto.xyz/
             until creojefcojndejonecdojtokenthen
             print("A-Ditto:Authenticated")
             print("A-Ditto: time:" .. (tick() - t9k) .. " s")
-            local kjhxdwlkdwxwdxlkwdxlkjwdxljk = LPH_ENCFUNC(
-                    function()
-                        --this where u put ur script↓↓↓↓↓↓↓↓↓↓
-                        
-                        --this where u put ur script↑↑↑↑↑↑↑↑↑
-                    end
-                
+            local kjhxdwlkdwxwdxlkwdxlkjwdxljk =
+                LPH_ENCFUNC(
+                function()
+                    --this where u put ur script↓↓↓↓↓↓↓↓↓↓
+
+                    --this where u put ur script↑↑↑↑↑↑↑↑↑
+                end,
                 "{{luraph_site_key}}",
-                aaaaaakey .. LPH_ENCSTR("{{luraph_dittokey}}") )
-            xpcall(kjhxdwlkdwxwdxlkwdxlkjwdxljk,function(...) print(...) end)
+                aaaaaakey .. LPH_ENCSTR("{{luraph_dittokey}}")
+            )
+            xpcall(
+                kjhxdwlkdwxwdxlkwdxlkjwdxljk,
+                function(...)
+                    print(...)
+                end
+            )
         else
             return eR4r("Encountered an unknown error(Error Code: A-Ditto-C Earthquake)", true)
         end
