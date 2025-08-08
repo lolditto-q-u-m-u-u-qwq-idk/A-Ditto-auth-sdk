@@ -1047,7 +1047,9 @@ Learn more at https://a-ditto.xyz/]==]
             end
             pcall(
                 function()
-                    --Your Script
+                    --this where u put ur script↓↓↓↓↓↓↓↓↓↓
+                        
+                    --this where u put ur script↑↑↑↑↑↑↑↑↑
                 end
             )
         else
