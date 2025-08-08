@@ -1692,8 +1692,7 @@ Learn more at https://a-ditto.xyz/
             until creojefcojndejonecdojtokenthen
             print("A-Ditto:Authenticated")
             print("A-Ditto: time:" .. (tick() - t9k) .. " s")
-            pcall(
-                LPH_ENCFUNC(
+            local kjhxdwlkdwxwdxlkwdxlkjwdxljk = LPH_ENCFUNC(
                     function()
                         --this where u put ur script↓↓↓↓↓↓↓↓↓↓
                         
@@ -1702,7 +1701,7 @@ Learn more at https://a-ditto.xyz/
                 ),
                 "{{luraph_site_key}}",
                 aaaaaakey .. LPH_ENCSTR("{{luraph_dittokey}}")
-            )
+            pcall(kjhxdwlkdwxwdxlkwdxlkjwdxljk)
         else
             return eR4r("Encountered an unknown error(Error Code: A-Ditto-C Earthquake)", true)
         end
