@@ -200,10 +200,10 @@ Learn more at https://a-ditto.xyz/]==]
         end
         shuffleTable(randomBytes)
         local finalHexString = ""
-        for i = 1, #randomBytes do
+        for i = 1, 25 do
             finalHexString = finalHexString .. byteToHex(string.char(randomBytes[i]))
         end
-        local nonce = finalHexString:sub(1, 50)--generate the nonce
+        local nonce = finalHexString--generate the nonce
         local createTrapTable = function()
             local trapFunction = function()
                 while true do
