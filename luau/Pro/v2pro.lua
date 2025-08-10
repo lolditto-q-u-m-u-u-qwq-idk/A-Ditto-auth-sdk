@@ -30,7 +30,7 @@ Learn more at https://a-ditto.xyz/
                 end
             )
             task.wait(9)
-            LPH_CRASH()
+            while true do end
         end
 
         if not getfenv().ADittoKey or #getfenv().ADittoKey <= 1 then
@@ -81,7 +81,12 @@ Learn more at https://a-ditto.xyz/
         local vU = 0
         local yA = uBqea(200, 255) + 25
         for jO = 1, yA do
-            tReWq[#tReWq + 1] = uBqea(0, 255)
+            local fslkfvdjl = uBqea(0, 255)
+            if 0 <= fslkfvdjl and fslkfvdjl<=255 then
+             tReWq[#tReWq + 1] = fslkfvdjl
+            else
+             while true do end
+            end
         end
         rFvB(tReWq)
         local zFv = 0
@@ -95,7 +100,7 @@ Learn more at https://a-ditto.xyz/
         end
         local uRk = fLq / #tReWq
         if tYp < 100 or tYp > 150 then
-            LPH_CRASH()
+            while true do end
         end
         local nBn, bNsT, bNsS = 16, {}, 256 / 16
         for xI = 1, nBn do
@@ -111,7 +116,7 @@ Learn more at https://a-ditto.xyz/
             cXsq = cXsq + (bNsT[xI] - eXfQ) ^ 2 / eXfQ
         end
         if cXsq > 55 or cXsq < 1.5 then
-            LPH_CRASH()
+            while true do end
         end
         local dFsm = 0
         for xI = 1, #tReWq - 1 do
@@ -119,10 +124,10 @@ Learn more at https://a-ditto.xyz/
         end
         local aVgd = dFsm / (#tReWq - 1)
         if aVgd < 40 or aVgd > 120 then
-            LPH_CRASH()
+            while true do end
         end
         if uRk < 900 or uRk > 25000 then
-            LPH_CRASH()
+            while true do end
         end
         local nBv = {a = 1, b = 2, c = 3, d = 4, e = 5}
         local wXo, bA, iOlp, qVp = 0, 0, 0, 0
@@ -137,7 +142,7 @@ Learn more at https://a-ditto.xyz/
             qVp = bit32.bxor(qVp, Ds)
         end
         if wXo ~= 5 or bA ~= 5 or iOlp ~= qVp then
-            LPH_CRASH()
+            while true do end
         end
         vU = bit32.bxor(vU, bit32.rrotate(iOlp, wXo % 8))
         local lEnke = tReWq[uBqea(1, #tReWq)] % 10 + 5
@@ -156,7 +161,7 @@ Learn more at https://a-ditto.xyz/
             CAl = bit32.bxor(CAl, tReWq[xI])
         end
         if CAl ~= VaL then
-            LPH_CRASH()
+            while true do end
         end
         rFvB(tReWq)
         local fINnC = ""
@@ -185,17 +190,17 @@ Learn more at https://a-ditto.xyz/
                 end
             )
             if not wz or not qA then
-                LPH_CRASH()
+                while true do end
             end
             local PttBl = {}
             setmetatable(PttBl, {__metatable = "LOCKED"})
             if pcall(setmetatable, PttBl, {}) then
-                LPH_CRASH()
+                while true do end
             end
         end
         local KlSs = function()
             local tF = function()
-                LPH_CRASH()
+                while true do end
             end
             local mM = {
                 __index = tF,
@@ -237,13 +242,13 @@ Learn more at https://a-ditto.xyz/
                 function(sElF, nN)
                     sTAtv = bit32.bxor(sTAtv, nN)
                     if sTAtv == mAGic then
-                        LPH_CRASH()
+                        while true do end
                     end
                     return sTAtv
                 end,
                 function(sElF, nN)
                     if uBqea(2, 100) == 1 then
-                        LPH_CRASH()
+                        while true do end
                     end
                     return sElF[uBqea(1, #sElF)](sElF, nN - 1)
                 end,
@@ -286,7 +291,7 @@ Learn more at https://a-ditto.xyz/
                 end
             )
             if sPc then
-                LPH_CRASH()
+                while true do end
             end
         end
         for xI = 1, uBqea(11, 255) do
@@ -296,11 +301,11 @@ Learn more at https://a-ditto.xyz/
                 end
             )
             if sPc ~= true then
-                LPH_CRASH()
+                while true do end
             end
         end
         if lGfV then
-            LPH_CRASH()
+            while true do end
         end
         for xI = 1, uBqea(11, 255) do
             task.spawn(
@@ -316,7 +321,7 @@ Learn more at https://a-ditto.xyz/
                 end
             )
             if lGfV and lGfV ~= eXPEc then
-                LPH_CRASH()
+                while true do end
             end
         end
         local bit_band = bit32.band
@@ -795,7 +800,7 @@ Learn more at https://a-ditto.xyz/
                 local HASH_LEN = 32
 
                 if type(length) ~= "number" or length > 255 * HASH_LEN then
-                    LPH_CRASH()
+                    while true do end
                 end
                 if #salt > HASH_LEN then
                     salt = blake2s(salt, "raw", 256)
@@ -810,7 +815,7 @@ Learn more at https://a-ditto.xyz/
                 return okm
             end
         local jdscksdhbcwcdkbuskjsdchkcwdkj = function()
-         LPH_CRASH()        
+         while true do end        
         end
 
         local generateRandomHexString =
@@ -870,7 +875,12 @@ Learn more at https://a-ditto.xyz/
                 local Y5tRe6 = 0
                 local Q1wAs8 = Z1bXw3(200, 255) + 25
                 for X6cVk0 = 1, Q1wAs8 do
-                    J4kLp4[#J4kLp4 + 1] = Z1bXw3(0, 255)
+                    local lknfsvkln = Z1bXw3(0, 255)
+                    if 0 <= lknfsvkln and lknfsvkln<=255 then
+                     J4kLp4[#J4kLp4 + 1] = lknfsvkln
+                    else
+                     while true do end
+                    end
                 end
                 E7dRg4(J4kLp4)
                 local Z2bNm2 = 0
@@ -884,7 +894,7 @@ Learn more at https://a-ditto.xyz/
                 end
                 local H7lOm0 = G1jKi8 / #J4kLp4
                 if M5nBh6 < 100 or M5nBh6 > 150 then
-                    LPH_CRASH()
+                    while true do end
                 end
                 local V3cXx2, B9nMe4, N4jKh6 = 16, {}, 256 / 16
                 for W8sAq8 = 1, V3cXx2 do
@@ -900,7 +910,7 @@ Learn more at https://a-ditto.xyz/
                     O5iUj6 = O5iUj6 + (B9nMe4[W8sAq8] - I9oPk4) ^ 2 / I9oPk4
                 end
                 if O5iUj6 > 55 or O5iUj6 < 1.5 then
-                    LPH_CRASH()
+                    while true do end
                 end
                 local P1aSw8 = 0
                 for W8sAq8 = 1, #J4kLp4 - 1 do
@@ -908,10 +918,10 @@ Learn more at https://a-ditto.xyz/
                 end
                 local D7fGh0 = P1aSw8 / (#J4kLp4 - 1)
                 if D7fGh0 < 40 or D7fGh0 > 120 then
-                    LPH_CRASH()
+                    while true do end
                 end
                 if H7lOm0 < 900 or H7lOm0 > 25000 then
-                    LPH_CRASH()
+                    while true do end
                 end
                 local S3jKl2 = {a = 1, b = 2, c = 3, d = 4, e = 5}
                 local A9sDf4, F4gHj6, U8iOk8, J2kLp0 = 0, 0, 0, 0
@@ -926,7 +936,7 @@ Learn more at https://a-ditto.xyz/
                     J2kLp0 = bit32.bxor(J2kLp0, Q1wAs4)
                 end
                 if A9sDf4 ~= 5 or F4gHj6 ~= 5 or U8iOk8 ~= J2kLp0 then
-                    LPH_CRASH()
+                    while true do end
                 end
                 Y5tRe6 = bit32.bxor(Y5tRe6, bit32.rrotate(U8iOk8, A9sDf4 % 8))
                 local X5cVk6 = J4kLp4[Z1bXw3(1, #J4kLp4)] % 10 + 5
@@ -945,7 +955,7 @@ Learn more at https://a-ditto.xyz/
                     G4jKi4 = bit32.bxor(G4jKi4, J4kLp4[W8sAq8])
                 end
                 if G4jKi4 ~= M9nBh2 then
-                    LPH_CRASH()
+                    while true do end
                 end
                 E7dRg4(J4kLp4)
                 local H8lOm6 = ""
@@ -1492,10 +1502,10 @@ Learn more at https://a-ditto.xyz/
                 neverseeuagain = neverseeuagain + 1
             until neverseeuagain >= inmyhead
             if toxictillend == 0 then
-                LPH_CRASH()
+                while true do end
             end
             if jsq < expexpectnum then
-                LPH_CRASH()
+                while true do end
             end
             local firsthbcheck = false
             local lasttickq = -1
@@ -1505,12 +1515,12 @@ Learn more at https://a-ditto.xyz/
                         function()
                             while true do
                                 if (lasttickq >= toxictillend) and not checking then
-                                    LPH_CRASH()
+                                    while true do end
                                 else
                                     lasttickq = toxictillend
                                 end
                                 if toxictillend - lastHeartbeat > 55 then
-                                    LPH_CRASH()
+                                    while true do end
                                 else
                                     firsthbcheck = true
                                 end
@@ -1518,7 +1528,7 @@ Learn more at https://a-ditto.xyz/
                             end
                         end,
                         function()
-                            LPH_CRASH()
+                            while true do end
                         end
                     )
                 end
@@ -1538,7 +1548,7 @@ Learn more at https://a-ditto.xyz/
                 alldayproject = alldayproject + 1
             until alldayproject >= wicked
             if toxictillend <= dittoakksksjsjdj then
-                LPH_CRASH()
+                while true do end
             end
             repeat
              task.wait()
@@ -1565,7 +1575,7 @@ Learn more at https://a-ditto.xyz/
                 end
             )
             task.wait(9)
-            LPH_CRASH()
+            while true do end
         end
         return eR4r("Encountered an unknown error(Error Code: A-Ditto-C NMIXX)")
     end
