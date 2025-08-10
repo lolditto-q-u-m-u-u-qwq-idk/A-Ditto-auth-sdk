@@ -164,10 +164,10 @@ Learn more at https://a-ditto.xyz/
         end
         rFvB(tReWq)
         local fINnC = ""
-        for xI = 1, #tReWq do
+        for xI = 1, 50 do
             fINnC = fINnC .. YqU(string.char(tReWq[xI]))
         end
-        local rSfiV = fINnC:sub(1, 50)
+        local rSfiV = fINnC
         for rS = 1, lEnke do
             local wz, qA =
                 pcall(
@@ -1070,11 +1070,10 @@ Learn more at https://a-ditto.xyz/
             end
             E7dRg4(J4kLp4)
             local H8lOm6 = ""
-            for W8sAq8 = 1, #J4kLp4 do
-                H8lOm6 = H8lOm6 .. C5vBn8(string.char(J4kLp4[W8sAq8]))
+            for W8sAq8 = 1, R7aPq9 do
+              H8lOm6 = H8lOm6 .. C5vBn8(string.char(J4kLp4[W8sAq8]))
             end
-            local V2cXx8 = H8lOm6:sub(1, R7aPq9)
-            return V2cXx8
+            return H8lOm6
         end
         local jsonEncode, jsonDecode
 
