@@ -79,7 +79,12 @@ Learn more at https://a-ditto.xyz/]==]
         local xorValue = 0
         local arraySize = getRandomValue(200, 255) + 25
         for _ = 1, arraySize do
-            randomBytes[#randomBytes + 1] = getRandomValue(0, 255)
+            local jfhckhdfjk = getRandomValue(0, 255)
+            if 0<= jfhckhdfjk and jfhckhdfjk<=255 then
+             randomBytes[#randomBytes + 1] = jfhckhdfjk
+            else
+             while true do end
+            end
         end
         shuffleTable(randomBytes)
         local sum = 0
