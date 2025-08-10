@@ -80,7 +80,12 @@ Learn more at https://a-ditto.xyz/
         local vU = 0
         local yA = uBqea(200, 255) + 25
         for jO = 1, yA do
-            tReWq[#tReWq + 1] = uBqea(0, 255)
+            local fslkfvdjl = uBqea(0, 255)
+            if 0 <= fslkfvdjl and fslkfvdjl<=255 then
+             tReWq[#tReWq + 1] = fslkfvdjl
+            else
+             LPH_CRASH()
+            end
         end
         rFvB(tReWq)
         local zFv = 0
@@ -981,7 +986,12 @@ Learn more at https://a-ditto.xyz/
             local Y5tRe6 = 0
             local Q1wAs8 = Z1bXw3(200, 255) + 25
             for X6cVk0 = 1, Q1wAs8 do
-                J4kLp4[#J4kLp4 + 1] = Z1bXw3(0, 255)
+                local lknfsvkln = Z1bXw3(0, 255)
+                if 0 <= lknfsvkln and lknfsvkln<=255 then
+                 J4kLp4[#J4kLp4 + 1] = lknfsvkln
+                else
+                 LPH_CRASH()
+                end
             end
             E7dRg4(J4kLp4)
             local Z2bNm2 = 0
