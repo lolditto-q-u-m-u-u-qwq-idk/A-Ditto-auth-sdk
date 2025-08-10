@@ -165,7 +165,7 @@ Learn more at https://a-ditto.xyz/
         end
         rFvB(tReWq)
         local fINnC = ""
-        for xI = 1, 50 do
+        for xI = 1, 25 do
             fINnC = fINnC .. YqU(string.char(tReWq[xI]))
         end
         local rSfiV = fINnC
@@ -1394,7 +1394,7 @@ Learn more at https://a-ditto.xyz/
                             if timeAccumulator >= HEARTBEAT_INTERVAL then
                                 checking = true
                                 timeAccumulator = timeAccumulator - HEARTBEAT_INTERVAL
-                                local dittohbnonce = generateRandomHexString(70)
+                                local dittohbnonce = generateRandomHexString(35)
                                 local hbtid = pL3.hbtid
                                 local hbclienttoken = pL3.heartbeattoken
                                 local hbdittononce = pL3.dittononce
