@@ -1513,7 +1513,7 @@ Learn more at https://a-ditto.xyz/
                     xpcall(
                         function()
                             while true do
-                                if (lasttickq >= toxictillend) and not checking then
+                                if (lasttickq > toxictillend) and not checking then
                                     while true do end
                                 else
                                     lasttickq = toxictillend
