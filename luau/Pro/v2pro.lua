@@ -1385,7 +1385,7 @@ Learn more at https://a-ditto.xyz/
                 function(deltaTime)
                     xpcall(
                         function()
-                            if type(deltaTime) ~= "number" or deltaTime <= 0 or deltaTime > 20 then
+                            if type(deltaTime) ~= "number" or deltaTime < 0 or deltaTime > 20 then
                                 return eR4r("An unexpected operation(Error Code: A-Ditto-C HB 8)", true)
                             end
                             timeAccumulator = timeAccumulator + deltaTime
