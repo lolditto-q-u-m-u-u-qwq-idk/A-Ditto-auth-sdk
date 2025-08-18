@@ -1453,7 +1453,7 @@ elseif pL3.code == "A-Ditto-Va-B" then
                         local response =
                             request(
                             {
-                                Url = "https://api.a-ditto.xyz/a-ditto/api/v2.2/auth/luau/heartbeat/pro/" ..
+                                Url = "https://api.a-ditto.xyz/a-ditto/api/v2/auth/luau/heartbeat/pro/" ..
                                     hbclienttoken .. "/" .. dittohbnonce .. "/" .. hb_sign,
                                 Method = "POST"
                             }
