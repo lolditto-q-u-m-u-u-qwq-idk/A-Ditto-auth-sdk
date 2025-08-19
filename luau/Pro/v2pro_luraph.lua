@@ -1578,12 +1578,12 @@ elseif pL3.code == "A-Ditto-Va-B" then
     repeat
         task.wait()
     until creojefcojndejonecdojtokenthen and firsthbcheck
-    
+
     print("A-Ditto:Authenticated")
     print("A-Ditto: time:" .. (tick() - t9k) .. " s")
-    if  LPH_ENCSTR("{{luraph_site_key}}")==aaaaaakey .. LPH_ENCSTR("{{luraph_dittokey}}") then
-    --this where u put ur script↓↓↓↓↓↓↓↓↓↓
-    --this where u put ur script↑↑↑↑↑↑↑↑↑
+    if LPH_ENCSTR("{{luraph_site_key}}") == aaaaaakey .. LPH_ENCSTR("{{luraph_dittokey}}") then
+        --this where u put ur script↓↓↓↓↓↓↓↓↓↓
+        --this where u put ur script↑↑↑↑↑↑↑↑↑
     end
 else
     return eR4r("Encountered an unknown error(Error Code: A-Ditto-C Earthquake)", true)
