@@ -488,14 +488,6 @@ Learn more at https://a-ditto.xyz/]==]
         end
 
         local hmac = function(key, text, hex_output)--HMAC (Hash-based Message Authentication Code)
-            if type(key) ~= "string" then
-                while true do
-                end
-            end
-            if type(text) ~= "string" then
-                while true do
-                end
-            end
 
             if #key > 64 then
                 key = sha1(key, "byte")
