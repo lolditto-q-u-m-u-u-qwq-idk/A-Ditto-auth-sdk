@@ -99,7 +99,7 @@ local uRk = fLq / #tReWq
 if tYp < 100 or tYp > 150 then
     LPH_CRASH()
 end
-local nBn, bNsT, bNsS = 16, {}, 256 / 16
+local nBn, bNsT, bNsS = 16, {}, / 16
 for xI = 1, nBn do
     bNsT[xI] = 0
 end
@@ -636,13 +636,10 @@ local compress = function(h, t_low, t_high, block, is_last_block)
     end
 end
 
-local blake2s = function(message, mode, length, key)
+local blake2s = function(message, mode,key)
     mode = mode or "hex"
-    length = length or 256
+    length = 256
     key = key or ""
-    if type(length) ~= "number" or length % 8 ~= 0 then
-        return nil
-    end
     local length_bytes = length / 8
     if length_bytes <= 0 or length_bytes > 32 then
         return nil
@@ -691,7 +688,7 @@ local blake2s = function(message, mode, length, key)
     for i = 1, 8 do
         raw_digest_parts[i] = to_bytes_le(h[i])
     end
-    local raw_digest = string_sub(table_concat(raw_digest_parts), 1, length_bytes)
+    local raw_digest = table_concat(raw_digest_parts)
     if mode == "byte" or mode == "raw" then
         return raw_digest
     else
@@ -706,21 +703,6 @@ local blake2s = function(message, mode, length, key)
     end
 end
 
-local hex_to_binary = function(hex_str)
-    local n = #hex_str
-    if n % 2 ~= 0 then
-        return nil
-    end
-    local t = {}
-    for i = 1, n, 2 do
-        local byte = tonumber(hex_str:sub(i, i + 1), 16)
-        if not byte then
-            return nil
-        end
-        t[#t + 1] = string.char(byte)
-    end
-    return table_concat(t)
-end
 
 local kdf_blake2s_keyed = function(ikm, salt, info, length)
     local HASH_LEN = 32
@@ -729,13 +711,13 @@ local kdf_blake2s_keyed = function(ikm, salt, info, length)
         LPH_CRASH()
     end
     if #salt > HASH_LEN then
-        salt = blake2s(salt, "raw", 256)
+        salt = blake2s(salt, "raw",)
     end
-    local prk = blake2s(ikm, "raw", 256, salt)
+    local prk = blake2s(ikm, "raw", salt)
     local okm, T = "", ""
     local num_blocks = ((length + HASH_LEN - 1) - ((length + HASH_LEN - 1) % HASH_LEN)) / HASH_LEN
     for i = 1, num_blocks do
-        T = blake2s(T .. info .. string.char(i), "raw", 256, prk)
+        T = blake2s(T .. info .. string.char(i), "raw", prk)
         okm = okm .. T
     end
     return okm
@@ -940,7 +922,7 @@ local iptilgdpijtegpietgpijtegjoitrviojyd = function(R7aPq9)
     if M5nBh6 < 100 or M5nBh6 > 150 then
         LPH_CRASH()
     end
-    local V3cXx2, B9nMe4, N4jKh6 = 16, {}, 256 / 16
+    local V3cXx2, B9nMe4, N4jKh6 = 16, {}, / 16
     for W8sAq8 = 1, V3cXx2 do
         B9nMe4[W8sAq8] = 0
     end
@@ -1262,27 +1244,26 @@ local secure_compare = function(a, b)
         local verify_b = bit32.bxor(string_byte(verify_char_b) or 0, string_byte(char_b) or 0)
         result = bit32.bor(result, verify_a, verify_b)
     end
-    return result ~= 0
+    return result ~= 0 or a~= b
 end
 
 local b6r = LPH_ENCSTR("{{projectid}}")
 local dK2 = getfenv().ADittoKey
-local rG3 = hex_to_binary(LPH_ENCSTR("{{main_key}}"))
+local rG3 = (LPH_ENCSTR("{{main_key}}"))
 local cK7 =
     kdf_blake2s_keyed(
-    hex_to_binary(LPH_ENCSTR("{{secret_key_1}}")),
+    (LPH_ENCSTR("{{secret_key_1}}")),
     blake2s(
         rSfiV ..
-            hex_to_binary(b6r) ..
+            (b6r) ..
                 LPH_ENCSTR(
                     "CWBslZFYPOzqeVwlsd64uNcH5cUfi8Fqkw_DgSqxTknxvxYrnP73k4FNyfte2I1MRK-sbpue3cbQXeeC840dTzW8Ix4KWgPANM9howxlZCuXQduRyQrbMnKAYkf3r0vYyk1JY7ndrWz2fAjq6ji-4t6CmEwavrL0q2_Xpb0s9OXmjO2cMpAggixjtB2VKdbG1egdHrMl"
                 ) ..
                     rG3,
-        "raw",
-        256
+        "raw"
     ) ..
-        hex_to_binary(LPH_ENCSTR("{{secret_key_2}}")) .. blake2s(hex_to_binary(b6r) .. base64UrlEncode(dK2), "raw", 256),
-    hex_to_binary(b6r),
+        (LPH_ENCSTR("{{secret_key_2}}")) .. blake2s((b6r) .. base64UrlEncode(dK2), "raw",),
+    (b6r),
     32
 )
 
@@ -1307,13 +1288,13 @@ local xG1 = {
     token = cO8l.token,
     tid = cO8l.nonce
 }
-local iL2 = blake2s(rSfiV, "hex", 256, cK7)
+local iL2 = blake2s(rSfiV, "hex", cK7)
 xG1.sign = iL2
 local hb_better_nonce = cO8l.nonce
 local hb_better_tid = dI9
 local pL3 = base64UrlEncode(jsonEncode(xG1))
 local iL9 = pL3
-local sN4 = base64UrlEncode(blake2s(iL9, "raw", 256, rG3))
+local sN4 = base64UrlEncode(blake2s(iL9, "raw", rG3))
 local cO5l = iL9 .. "." .. sN4
 local cO8 =
     request(
@@ -1327,14 +1308,14 @@ if cO8l and rG6 then
 else
     return eR4r("An unexpected operation(Error Code: A-Ditto-C 3)", true)
 end
-if secure_compare(blake2s(cO8l, "raw", 256, rG3), base64UrlDecode(rG6)) then
+if secure_compare(blake2s(cO8l, "raw", rG3), base64UrlDecode(rG6)) then
     return eR4r("An unexpected operation(Error Code: A-Ditto-C 4)", true)
 end
 
 local pL3 = jsonDecode(base64UrlDecode(cO8l))
 if
     secure_compare(
-        hex_to_binary(pL3.sign),
+        (pL3.sign),
         blake2s(
             pL3.nonce ..
                 pL3.code ..
@@ -1350,8 +1331,7 @@ if
                                 "70b8f006f5e2041beaa75bfe3737d592e5d28af786d334f0bf9cbfec3b6a01dc3dfd75874b4f785bd5c67fe188caf950a341bfa811cc98f01d5097764db47f8f475dc3554f7ee8743fc52e4b70edffa832753441cbb697fbc09d"
                             )) ..
                             dI9 .. b6r,
-            "raw",
-            256,
+            "hex"
             cK7
         )
     )
@@ -1373,7 +1353,7 @@ elseif pL3.code == "A-Ditto-Va-B" then
     local jumpid = pL3.dittoid
     local msg =
         base64UrlEncode(
-        blake2s(base64UrlEncode(accesstoken) .. "." .. base64UrlEncode(dK2 .. b6r) .. rSfiV, "raw", 256, cK7)
+        blake2s(base64UrlEncode(accesstoken) .. "." .. base64UrlEncode(dK2 .. b6r) .. rSfiV, "raw", cK7)
     )
     local ditto =
         request(
@@ -1389,7 +1369,7 @@ elseif pL3.code == "A-Ditto-Va-B" then
     end
     local pL3a = jsonDecode(base64UrlDecode(cO8l))
     local proid = pL3a.dittoid
-    if secure_compare(blake2s(cO8l .. pL3a.tid .. rSfiV .. proid, "raw", 256, cK7), base64UrlDecode(rG6)) then
+    if secure_compare(blake2s(cO8l .. pL3a.tid .. rSfiV .. proid, "raw", cK7), base64UrlDecode(rG6)) then
         return eR4r("An unexpected operation(Error Code: A-Ditto-C 4 A)", true)
     end
     local ADitto_UserGroup = pL3a.data
@@ -1446,9 +1426,9 @@ elseif pL3.code == "A-Ditto-Va-B" then
                                     dK2 ..
                                         hb_better_nonce ..
                                             hb_better_tid ..
-                                                hex_to_binary(dittohbnonce) ..
-                                                    hex_to_binary(rSfiV) .. hex_to_binary(hbdittononce)
-                        local hb_sign = blake2s(hb_payload, "hex", 256, cK7)
+                                                (dittohbnonce) ..
+                                                    (rSfiV) .. (hbdittononce)
+                        local hb_sign = blake2s(hb_payload, "hex", cK7)
 
                         local response =
                             request(
@@ -1464,13 +1444,14 @@ elseif pL3.code == "A-Ditto-Va-B" then
                         if not respayload or not ressign then
                             return eR4r("An unexpected operation(Error Code: A-Ditto-C 3 HB A)", true)
                         end
-                        local aaaaaa = blake2s(respayload, "raw", 256, cK7)
+                        local aaaaaa = blake2s(respayload, "raw", cK7)
                         if secure_compare(aaaaaa, base64UrlDecode(ressign)) then
                             return eR4r("An unexpected operation(Error Code: A-Ditto-C HB 4)", true)
                         end
                         local pL3b = jsonDecode(base64UrlDecode(respayload))
                         local expectedSignature =
                             blake2s(
+                            pL3b.status..                            
                             b6r ..
                                 proid ..
                                     hbtid ..
@@ -1478,13 +1459,12 @@ elseif pL3.code == "A-Ditto-Va-B" then
                                             pL3b.nonce ..
                                                 hb_better_nonce ..
                                                     hb_better_tid ..
-                                                        hex_to_binary(dittohbnonce) ..
-                                                            hex_to_binary(rSfiV) .. hex_to_binary(hbdittononce),
-                            "raw",
-                            256,
+                                                        (dittohbnonce) ..
+                                                            (rSfiV) .. (hbdittononce),
+                            "hex",
                             cK7
                         )
-                        if secure_compare(expectedSignature, hex_to_binary(pL3b.signature)) then
+                        if secure_compare(expectedSignature, (pL3b.signature)) then
                             return eR4r("An unexpected operation(Error Code: A-Ditto-C HB 5)", true)
                         end
                         if not creojefcojndejonecdojtokenthen then
@@ -1502,7 +1482,7 @@ elseif pL3.code == "A-Ditto-Va-B" then
                             if #nonce ~= 12 or #tag_expect ~= 32 then
                                 return eR4r("An unexpected operation(Error Code: A-Ditto-C HB T 2)", true)
                             end
-                            local tag_calc = blake2s(ciphertext .. nonce .. jumpid .. pL3b.dittoid, "raw", 256, cK7)
+                            local tag_calc = blake2s(ciphertext .. nonce .. jumpid .. pL3b.dittoid, "raw", cK7)
                             if secure_compare(tag_calc, tag_expect) then
                                 return eR4r("An unexpected operation(Error Code: A-Ditto-C HB T 3)", true)
                             end

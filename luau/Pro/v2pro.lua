@@ -762,7 +762,7 @@ Learn more at https://a-ditto.xyz/
                 for i = 1, 8 do
                     raw_digest_parts[i] = to_bytes_le(h[i])
                 end
-                local raw_digest = string_sub(table_concat(raw_digest_parts), 1, length_bytes)
+                local raw_digest = table_concat(raw_digest_parts)
                 if mode == "byte" or mode == "raw" then
                     return raw_digest
                 else
@@ -778,22 +778,7 @@ Learn more at https://a-ditto.xyz/
                 end
             end
 
-        local hex_to_binary =
-            function(hex_str)
-                local n = #hex_str
-                if n % 2 ~= 0 then
-                    return nil
-                end
-                local t = {}
-                for i = 1, n, 2 do
-                    local byte = tonumber(hex_str:sub(i, i + 1), 16)
-                    if not byte then
-                        return nil
-                    end
-                    t[#t + 1] = string.char(byte)
-                end
-                return table_concat(t)
-            end
+
 
         local kdf_blake2s_keyed =
             function(ikm, salt, info, length)
@@ -1230,18 +1215,18 @@ Learn more at https://a-ditto.xyz/
                     local verify_b = bit32.bxor(string_byte(verify_char_b) or 0, string_byte(char_b) or 0)
                     result = bit32.bor(result, verify_a, verify_b)
                 end
-                return result ~= 0
+                return result ~= 0 or a~=b
             end
 
         local b6r = ("{{projectid}}")
         local dK2 = getfenv().ADittoKey
-        local rG3 = hex_to_binary(("{{main_key}}"))
+        local rG3 = (("{{main_key}}"))
         local cK7 =
             kdf_blake2s_keyed(
-            hex_to_binary(("{{secret_key_1}}")),
+            (("{{secret_key_1}}")),
             blake2s(
                 rSfiV ..
-                    hex_to_binary(b6r) ..
+                    (b6r) ..
                         (
                             "CWBslZFYPOzqeVwlsd64uNcH5cUfi8Fqkw_DgSqxTknxvxYrnP73k4FNyfte2I1MRK-sbpue3cbQXeeC840dTzW8Ix4KWgPANM9howxlZCuXQduRyQrbMnKAYkf3r0vYyk1JY7ndrWz2fAjq6ji-4t6CmEwavrL0q2_Xpb0s9OXmjO2cMpAggixjtB2VKdbG1egdHrMl"
                         ) ..
@@ -1249,9 +1234,9 @@ Learn more at https://a-ditto.xyz/
                 "raw",
                 256
             ) ..
-                hex_to_binary(("{{secret_key_2}}")) ..
-                    blake2s(hex_to_binary(b6r) .. base64UrlEncode(dK2), "raw", 256),
-            hex_to_binary(b6r),
+                (("{{secret_key_2}}")) ..
+                    blake2s((b6r) .. base64UrlEncode(dK2), "raw", 256),
+            (b6r),
             32
         )
 
@@ -1303,7 +1288,7 @@ Learn more at https://a-ditto.xyz/
         local pL3 = jsonDecode(base64UrlDecode(cO8l))
         if
             secure_compare(
-                hex_to_binary(pL3.sign),
+                (pL3.sign),
                 blake2s(
                     pL3.nonce ..
                         pL3.code ..
@@ -1319,7 +1304,7 @@ Learn more at https://a-ditto.xyz/
                                         "70b8f006f5e2041beaa75bfe3737d592e5d28af786d334f0bf9cbfec3b6a01dc3dfd75874b4f785bd5c67fe188caf950a341bfa811cc98f01d5097764db47f8f475dc3554f7ee8743fc52e4b70edffa832753441cbb697fbc09d"
                                     )) ..
                                     dI9 .. b6r,
-                    "raw",
+                    "hex",
                     256,
                     cK7
                 )
@@ -1405,8 +1390,8 @@ Learn more at https://a-ditto.xyz/
                                             dK2 ..
                                                 hb_better_nonce ..
                                                     hb_better_tid ..
-                                                        hex_to_binary(dittohbnonce) ..
-                                                            hex_to_binary(rSfiV) .. hex_to_binary(hbdittononce)
+                                                        (dittohbnonce) ..
+                                                            (rSfiV) .. (hbdittononce)
                                 local hb_sign = blake2s(hb_payload, "hex", 256, cK7)
 
                                 local response =
@@ -1437,13 +1422,13 @@ Learn more at https://a-ditto.xyz/
                                                     pL3b.nonce ..
                                                         hb_better_nonce ..
                                                             hb_better_tid ..
-                                                                hex_to_binary(dittohbnonce) ..
-                                                                    hex_to_binary(rSfiV) .. hex_to_binary(hbdittononce),
-                                    "raw",
+                                                                (dittohbnonce) ..
+                                                                    (rSfiV) .. (hbdittononce),
+                                    "hex",
                                     256,
                                     cK7
                                 )
-                                if secure_compare(expectedSignature, hex_to_binary(pL3b.signature)) then
+                                if secure_compare(expectedSignature, (pL3b.signature)) then
                                     return eR4r("An unexpected operation(Error Code: A-Ditto-C HB 5)", true)
                                 end
                                 if pL3b.status == "A-Ditto-Invalid-D" then
