@@ -1415,6 +1415,7 @@ Learn more at https://a-ditto.xyz/
                                 local pL3b = jsonDecode(base64UrlDecode(respayload))
                                 local expectedSignature =
                                     blake2s(
+                                    pL3b.status..
                                     b6r ..
                                         proid ..
                                             hbtid ..
