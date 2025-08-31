@@ -467,7 +467,7 @@ Learn more at https://a-ditto.xyz/]==]
                 result = bit32.bor(result, bit32.bxor(byte_a, byte_b))
             end
             result = bit32.bor(result, bit32.bxor(len_a, len_b))
-            return result ~= 0
+            return result ~= 0 or a~=b
         end
 
         local xor_with_0x36 = function(c)
